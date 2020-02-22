@@ -48,7 +48,6 @@ function App() {
           <PrivateRoute authed={authed} path="/clubs" component={Clubs}/>
           <PrivateRoute authed={authed} path="/groups" component={Groups}/>
           <PrivateRoute authed={authed} path="/availability" component={Availability}/>
-          <Route render={() => <Layout><h1>No Match</h1></Layout>} />
       </Router>
   );
 }
