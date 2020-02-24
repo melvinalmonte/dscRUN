@@ -1,7 +1,7 @@
 import React from "react";
-import {logout} from "../../utils/auth";
+import { logout } from "../../utils/auth";
 
-export const SideBar = props => {
+export const SideBar = () => {
   return (
     <aside className="menu dsc-sidebar has-text-centered">
       <ul className="menu-list">
@@ -18,7 +18,9 @@ export const SideBar = props => {
           <a href="/availability">Space Availability</a>
         </li>
         <li>
-          <a href="#!" onClick={() => logout()}>Logout</a>
+          <a href="#!" onClick={() => logout()}>
+            Logout
+          </a>
         </li>
       </ul>
     </aside>
