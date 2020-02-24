@@ -46,7 +46,7 @@ const LoginForm = props => {
               </p>
             ) : null}
             <p className="sign-up-link">
-              Don&quot;t Have an Account? <Link to="/signup">Sign Up</Link>
+              Don&apos;t Have an Account? <Link to="/signup">Sign Up</Link>
             </p>
           </div>
         </div>
