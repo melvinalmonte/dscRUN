@@ -6,7 +6,11 @@ export const Footer = () => (
       <p className="group-description">Powered by DSC Rutgers Newark</p>
       <p className="group-description">
         Add Us On{" "}
-        <a href="https://dscrutgers.slack.com/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://dscrutgers.slack.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Slack!
         </a>
       </p>

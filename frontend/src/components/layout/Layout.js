@@ -1,13 +1,19 @@
-import React from 'react'
-import SideBar from '../sidebar'
+import React from "react";
+import PropTypes from "prop-types";
+import SideBar from "../sidebar";
 
-export const Layout = props => (
+export const Layout = props => {
+  const { children } = props;
+  return (
     <div className="columns layout-base">
-        <div className="column side-bar">
-        <SideBar/>
-        </div>
-        <div className="column is-11">
-            {props.children}
-        </div>
+      <div className="column side-bar">
+        <SideBar />
+      </div>
+      <div className="column is-11">{children}</div>
     </div>
-)
+  );
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
+};

@@ -2,8 +2,8 @@ import React from "react";
 import Layout from "../components/layout";
 import Footer from "../components/footer";
 import Sections from "../components/sections";
-import { CreateStudyGroup } from "../components/modals";
-import { SearchStudyGroup } from "../components/modals";
+import { CreateStudyGroup, SearchStudyGroup } from "../components/modals";
+
 import ModalHandler from "../components/modals/helpers";
 
 export const Groups = () => {
