@@ -40,5 +40,5 @@ export default SearchStudyGroup;
 
 SearchStudyGroup.propTypes = {
   open: PropTypes.bool,
-  close: PropTypes.bool
+  close: PropTypes.func
 };
