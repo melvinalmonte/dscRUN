@@ -12,7 +12,6 @@ export const Groups = () => {
   const createGroup = CreateHandler();
   return (
     <Layout>
-      {console.log(createGroup.group)}
       <Sections
         title="Study Groups"
         description="Get the opportunity to create your own study group and others
