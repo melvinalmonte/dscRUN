@@ -11,7 +11,7 @@ import { Clubs } from "./pages/Clubs";
 import { Groups } from "./pages/Groups";
 import { Availability } from "./pages/Availability";
 import { Redirect } from "./pages/Redirect";
-import {LandingPage} from "./pages/LandingPage";
+import { LandingPage } from "./pages/LandingPage";
 
 function App() {
   const [auth, setAuth] = useState(false);

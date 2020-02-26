@@ -76,5 +76,4 @@ SearchStudyGroup.propTypes = {
   group: PropTypes.string,
   handleSubmit: PropTypes.func,
   searchData: PropTypes.array
-
 };

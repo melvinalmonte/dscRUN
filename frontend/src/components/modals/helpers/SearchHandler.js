@@ -9,7 +9,7 @@ const SearchHandler = () => {
 
   const handleSubmit = () => {
     // todo: input validation and on key press.
-    //todo: error handling to when database returns null.
+    // todo: error handling to when database returns null.
     firebaseDB.ref("/").on("value", snapshot => {
       const dbData = snapshot.val();
       const searchResult = dbData.filter(data => {
