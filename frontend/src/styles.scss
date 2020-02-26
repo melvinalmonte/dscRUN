@@ -81,6 +81,12 @@ $footer-background-color:white;
 .error-pass{
     margin-top: 1rem;
 }
+
+//Landing Page
+.landing-page-base{
+    min-height: 100vh;
+}
+
 @import "~@fortawesome/fontawesome-free/css/fontawesome.css";
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import "~bulma/bulma";
