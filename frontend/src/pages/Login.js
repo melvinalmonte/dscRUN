@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import { LoginForm } from "../components/forms";
 import { LoginHandler } from "../components/forms/helpers";
 
-export const Home = () => {
+export const Login = () => {
   const login = LoginHandler();
   return (
     <Layout>
