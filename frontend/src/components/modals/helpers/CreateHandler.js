@@ -25,9 +25,11 @@ const CreateHandler = () => {
 
   const handleSubmit = () => {
     // todo: Serious input validation. handle keypress and look into adding a proper time to meeting.
+    // todo: add error handling if user leaves fields empty, find a way to display group name without being concerned with letter casing.
+    // todo: find a way to handle duplicate entry to db. Maybe use group name as unique name?...idk perhaps.
     let createGroup = groups;
     createGroup = {
-      name: groupName,
+      name: groupName.toLowerCase(),
       description: description,
       time: meetTime,
       location: meetLocation
