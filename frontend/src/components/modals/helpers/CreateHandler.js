@@ -24,6 +24,7 @@ const CreateHandler = () => {
   };
 
   const handleSubmit = () => {
+    // todo: Serious input validation. handle keypress and look into adding a proper time to meeting.
     let createGroup = groups;
     createGroup = {
       name: groupName,
