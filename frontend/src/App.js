@@ -18,7 +18,6 @@ function App() {
 
   useEffect(() => {
     const removeListener = firebaseAuth().onAuthStateChanged(user => {
-      console.log(user);
       if (user) {
         setAuth(true);
         setLoading(false);

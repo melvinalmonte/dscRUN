@@ -2,7 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CreateStudyGroup = props => {
-  const { open, close } = props;
+  const {
+    open,
+    close,
+    groupName,
+    groupDescription,
+    meetUpTime,
+    meetUpLocation,
+    groupNameHandler,
+    groupDescriptionHandler,
+    meetUpTimeHandler,
+    meetUpLocationHanlder,
+    submitHandler
+  } = props;
 
   if (!open) {
     return null;
@@ -18,11 +30,41 @@ const CreateStudyGroup = props => {
           <button className="delete" aria-label="close" onClick={close} />
         </header>
         <section className="modal-card-body">
-          <p>TODO: Add form create a study group.</p>
+          <div className="field">
+            <div className="control">
+              <p>Group Name:</p>
+              <input
+                className="input"
+                type="text"
+                value={groupName}
+                onChange={groupNameHandler}
+              />
+              <p>Group Description: </p>
+              <textarea
+                className="textarea"
+                value={groupDescription}
+                onChange={groupDescriptionHandler}
+              />
+              <p>Meetup Time:</p>
+              <input
+                className="input"
+                type="text"
+                value={meetUpTime}
+                onChange={meetUpTimeHandler}
+              />
+              <p>Meeting Location:</p>
+              <input
+                className="input"
+                type="text"
+                value={meetUpLocation}
+                onChange={meetUpLocationHanlder}
+              />
+            </div>
+          </div>
         </section>
         <footer className="modal-card-foot">
-          <button className="button btn-modal" onClick={close}>
-            Cancel
+          <button className="button btn-modal" onClick={submitHandler}>
+            Save
           </button>
         </footer>
       </div>
@@ -34,5 +76,14 @@ export default CreateStudyGroup;
 
 CreateStudyGroup.propTypes = {
   open: PropTypes.bool,
-  close: PropTypes.bool
+  close: PropTypes.func,
+  groupName: PropTypes.string,
+  groupNameHandler: PropTypes.func,
+  groupDescription: PropTypes.string,
+  groupDescriptionHandler: PropTypes.func,
+  meetUpTime: PropTypes.string,
+  meetUpTimeHandler: PropTypes.func,
+  meetUpLocation: PropTypes.string,
+  meetUpLocationHanlder: PropTypes.func,
+  submitHandler: PropTypes.func
 };

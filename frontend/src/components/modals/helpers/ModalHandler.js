@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ModalHandler = () => {
+const ModalHandler = () => {
   const [openCreate, setOpenCreate] = React.useState(false);
   const [openSearch, setOpenSearch] = React.useState(false);
   const showCreate = () =>
@@ -15,3 +15,5 @@ export const ModalHandler = () => {
     showSearch
   };
 };
+
+export default ModalHandler;
