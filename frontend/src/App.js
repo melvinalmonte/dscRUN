@@ -42,7 +42,8 @@ function App() {
 
   return (
     <Router history={history}>
-      <Route exact path="/" component={LandingPage} />
+      <Route exact path="/" component={Redirect} />
+      <Route exact path="/home" component={LandingPage} />
       <PublicRoute auth={auth} path="/login" component={Login} />
       <PublicRoute auth={auth} path="/redirect" component={Redirect} />
       <PublicRoute auth={auth} path="/signup" component={SignUp} />

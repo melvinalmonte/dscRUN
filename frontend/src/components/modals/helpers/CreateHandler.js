@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { groups } from "../../../models/groups";
-import { firebaseDB } from "../../../firebase/config";
+import { db } from "../../../firebase/config";
 
 const CreateHandler = () => {
-  const [group, setGroup] = React.useState([]);
+  const [group, setGroup] = React.useState({});
   const [groupName, setGroupName] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [meetTime, setMeetTime] = React.useState("");
@@ -15,12 +15,15 @@ const CreateHandler = () => {
   const handleMeetLocation = e => setMeetLocation(e.target.value);
 
   useEffect(() => {
-    writeGroup();
+    if (Object.entries(group).length === 0 && group.constructor === Object) {
+      return console.log("empty request");
+    } else {
+      writeGroup();
+    }
   }, [group]);
 
   const writeGroup = () => {
-    firebaseDB.ref("/").set(group);
-    console.log("Group Saved");
+    db.collection("groups").add(group);
   };
 
   const handleSubmit = () => {
@@ -34,7 +37,7 @@ const CreateHandler = () => {
       time: meetTime,
       location: meetLocation
     };
-    setGroup(state => [...state, createGroup]);
+    setGroup(createGroup);
   };
 
   return {
