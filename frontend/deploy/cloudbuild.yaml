@@ -1,0 +1,32 @@
+steps:
+  # Build Container
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/dsc-tester/dsc-frontend", "."]
+    # Push to registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/dsc-tester/dsc-frontend"]
+    # Deploy to Cloud Build
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "dsc-frontend",
+        "--image",
+        "gcr.io/dsc-tester/dsc-frontend",
+        "--region",
+        "us-east1",
+        "--platform",
+        "managed",
+        "--allow-unauthenticated",
+      ]
+
+images: ["gcr.io/dsc-tester/dsc-frontend"]
+# Deploy to GKE
+# - name: "gcr.io/cloud-builders/gke-deploy"
+#   args:
+#   - run
+#   - --filename=deploy/app.yaml
+#   - --image=gcr.io/dsc-tester/dsc-frontend
+#   - --location=us-central1-c
+#   - --cluster=dsc-frontend
