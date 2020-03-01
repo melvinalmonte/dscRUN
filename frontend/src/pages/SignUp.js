@@ -4,15 +4,21 @@ import { SignUpForm } from "../components/forms";
 import { SignUpHandler } from "../components/forms/helpers";
 
 export const SignUp = () => {
-  const signIn = SignUpHandler();
+  const {
+    handleEmail,
+    handlePass,
+    handleValidate,
+    handleSignUp,
+    err
+  } = SignUpHandler();
   return (
     <Layout>
       <SignUpForm
-        email={signIn.handleEmail}
-        password={signIn.handlePass}
-        passValidate={signIn.handleValidate}
-        submit={signIn.handleSignUp}
-        err={signIn.err}
+        email={handleEmail}
+        password={handlePass}
+        passValidate={handleValidate}
+        submit={handleSignUp}
+        err={err}
       />
     </Layout>
   );

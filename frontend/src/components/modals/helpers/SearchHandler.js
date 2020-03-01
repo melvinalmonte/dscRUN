@@ -2,16 +2,19 @@ import React from "react";
 import { db } from "../../../firebase/config";
 
 const SearchHandler = () => {
-  const [groupName, setGroupName] = React.useState("");
+  const [showSearch, setShowSearch] = React.useState(false);
+  const [searchTerm, setSearchTerm] = React.useState("");
   const [searchData, setSearchData] = React.useState([]);
 
-  const handleSearch = e => setGroupName(e.target.value);
+  const handleSearchModal = () =>
+    showSearch ? setShowSearch(false) : setShowSearch(true);
+  const handleSearch = e => setSearchTerm(e.target.value);
 
-  const handleSubmit = () => {
+  const handleSubmitSearch = () => {
     // todo: input validation and on key press.
     // todo: error handling to when database returns null.
     db.collection("groups")
-      .where("name", "==", groupName)
+      .where("name", "==", searchTerm)
       .get()
       .then(response => {
         response.forEach(doc => {
@@ -20,11 +23,20 @@ const SearchHandler = () => {
       });
   };
 
+  const handleKeyPressSearch = e => {
+    if (e.keyCode === 13) {
+      handleSubmitSearch();
+    }
+  };
+
   return {
-    groupName,
+    showSearch,
+    searchTerm,
     searchData,
     handleSearch,
-    handleSubmit
+    handleSubmitSearch,
+    handleSearchModal,
+    handleKeyPressSearch
   };
 };
 
