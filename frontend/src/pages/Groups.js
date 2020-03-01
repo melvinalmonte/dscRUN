@@ -3,18 +3,35 @@ import Layout from "../components/layout";
 import Footer from "../components/footer";
 import Sections from "../components/sections";
 import { CreateStudyGroup, SearchStudyGroup } from "../components/modals";
-import {
-  ModalHandler,
-  CreateHandler,
-  SearchHandler
-} from "../components/modals/helpers";
+import { CreateHandler, SearchHandler } from "../components/modals/helpers";
 import { Auth } from "../utils/Auth";
 
 export const Groups = () => {
   const { auth } = Auth();
-  const modal = ModalHandler();
-  const createGroup = CreateHandler();
-  const searchGroup = SearchHandler();
+  const {
+    show,
+    createGroupErr,
+    groupName,
+    description,
+    meetTime,
+    meetLocation,
+    handleGroupName,
+    handleGroupDesc,
+    handleMeetTime,
+    handleMeetLocation,
+    handleSubmit,
+    handleKeyPress,
+    handleModal
+  } = CreateHandler();
+  const {
+    showSearch,
+    searchTerm,
+    searchData,
+    handleSearch,
+    handleSubmitSearch,
+    handleSearchModal,
+    handleKeyPressSearch
+  } = SearchHandler();
   return (
     <Layout login={auth}>
       <section className="hero has-text-centered">
@@ -28,33 +45,36 @@ export const Groups = () => {
         description="Get the opportunity to create your own study group and others
                 can join as well!"
         btnTitle="Create a Study Group"
-        btnAction={modal.showCreate}
+        btnAction={handleModal}
       />
       <CreateStudyGroup
-        open={modal.openCreate}
-        close={modal.showCreate}
-        groupName={createGroup.groupName}
-        groupDescription={createGroup.description}
-        meetUpTime={createGroup.meetTime}
-        meetUpLocation={createGroup.meetLocation}
-        groupNameHandler={createGroup.handleGroupName}
-        groupDescriptionHandler={createGroup.handleGroupDesc}
-        meetUpTimeHandler={createGroup.handleMeetTime}
-        meetUpLocationHanlder={createGroup.handleMeetLocation}
-        submitHandler={createGroup.handleSubmit}
+        open={show}
+        close={handleModal}
+        groupName={groupName}
+        groupDescription={description}
+        meetUpTime={meetTime}
+        meetUpLocation={meetLocation}
+        groupNameHandler={handleGroupName}
+        groupDescriptionHandler={handleGroupDesc}
+        meetUpTimeHandler={handleMeetTime}
+        meetUpLocationHandler={handleMeetLocation}
+        submitHandler={handleSubmit}
+        keyPressHandler={handleKeyPress}
+        createErr={createGroupErr}
       />
       <Sections
         description="Discover study groups and join if you would like."
         btnTitle="Find Study Groups"
-        btnAction={modal.showSearch}
+        btnAction={handleSearchModal}
       />
       <SearchStudyGroup
-        open={modal.openSearch}
-        close={modal.showSearch}
-        group={searchGroup.groupName}
-        handleSearch={searchGroup.handleSearch}
-        handleSubmit={searchGroup.handleSubmit}
-        searchData={searchGroup.searchData}
+        open={showSearch}
+        group={searchTerm}
+        searchData={searchData}
+        close={handleSearchModal}
+        handleSearch={handleSearch}
+        handleSubmit={handleSubmitSearch}
+        keyPressHandler={handleKeyPressSearch}
       />
       <Footer />
     </Layout>

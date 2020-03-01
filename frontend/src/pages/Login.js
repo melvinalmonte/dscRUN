@@ -4,14 +4,14 @@ import { LoginForm } from "../components/forms";
 import { LoginHandler } from "../components/forms/helpers";
 
 export const Login = () => {
-  const login = LoginHandler();
+  const { handleEmail, handlePass, handleLogin, err } = LoginHandler();
   return (
     <Layout>
       <LoginForm
-        email={login.handleEmail}
-        password={login.handlePass}
-        submit={login.handleLogin}
-        err={login.err}
+        email={handleEmail}
+        password={handlePass}
+        submit={handleLogin}
+        err={err}
       />
     </Layout>
   );
