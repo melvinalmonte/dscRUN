@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SideBar from "../sidebar";
+import Header from "../navbar";
 
 export const Layout = props => {
-  const { children } = props;
+  const { login, children } = props;
   return (
-    <div className="columns layout-base">
-      <div className="column side-bar">
-        <SideBar />
-      </div>
-      <div className="column is-11">{children}</div>
+    <div>
+      <Header login={login} />
+      <div className="layout-base">{children}</div>
     </div>
   );
 };
 
 Layout.propTypes = {
+  login: PropTypes.bool,
   children: PropTypes.node.isRequired
 };

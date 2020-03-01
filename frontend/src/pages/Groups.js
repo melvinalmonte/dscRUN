@@ -8,15 +8,23 @@ import {
   CreateHandler,
   SearchHandler
 } from "../components/modals/helpers";
+import { Auth } from "../utils/Auth";
 
 export const Groups = () => {
+  const { auth } = Auth();
   const modal = ModalHandler();
   const createGroup = CreateHandler();
   const searchGroup = SearchHandler();
   return (
-    <Layout>
+    <Layout login={auth}>
+      <section className="hero has-text-centered">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title">Study Groups</h1>
+          </div>
+        </div>
+      </section>
       <Sections
-        title="Study Groups"
         description="Get the opportunity to create your own study group and others
                 can join as well!"
         btnTitle="Create a Study Group"

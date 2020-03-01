@@ -1,5 +1,5 @@
 import React from "react";
-import { logIn } from "../../../utils/auth";
+import { logIn } from "../../../utils/services";
 
 const LoginHandler = () => {
   const [email, setEmail] = React.useState("");
