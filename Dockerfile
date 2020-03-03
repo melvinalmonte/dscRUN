@@ -13,7 +13,7 @@ FROM nginx:alpine
 
 COPY --from=build-stage /app/build/ /var/www
 
-COPY  --from=build-stage /app/deploy/nginx.conf /etc/nginx/nginx.conf
+COPY  --from=build-stage /app/serve/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 8080
 

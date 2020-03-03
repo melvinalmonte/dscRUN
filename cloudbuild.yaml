@@ -10,7 +10,7 @@ steps:
     args:
       [
         "run",
-        "deploy",
+        "serve",
         "dsc-frontend",
         "--image",
         "gcr.io/dsc-tester/dsc-frontend",
@@ -23,10 +23,10 @@ steps:
 
 images: ["gcr.io/dsc-tester/dsc-frontend"]
 # Deploy to GKE
-# - name: "gcr.io/cloud-builders/gke-deploy"
+# - name: "gcr.io/cloud-builders/gke-serve"
 #   args:
 #   - run
-#   - --filename=deploy/app.yaml
+#   - --filename=serve/app.yaml
 #   - --image=gcr.io/dsc-tester/dsc-frontend
 #   - --location=us-central1-c
 #   - --cluster=dsc-frontend
