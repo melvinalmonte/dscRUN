@@ -1,5 +1,5 @@
 import React from "react";
-import { logout, signUp } from "../../../utils/auth";
+import { logout, signUp } from "../../../utils/services";
 
 const SignUpHandler = () => {
   const [email, setEmail] = React.useState("");

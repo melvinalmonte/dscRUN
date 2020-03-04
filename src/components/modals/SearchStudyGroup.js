@@ -2,13 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const SearchStudyGroup = props => {
-  const { open, close, handleSubmit, handleSearch, group, searchData } = props;
-
-  if (!open) {
-    return null;
-  }
+  const {
+    open,
+    close,
+    handleSubmit,
+    handleSearch,
+    group,
+    searchData,
+    keyPressHandler
+  } = props;
   return (
-    <div className="modal is-active">
+    <div className={open ? "modal is-active" : "modal"}>
       <div className="modal-background" />
       <div className="modal-card">
         <header className="modal-card-head">
@@ -25,6 +29,7 @@ const SearchStudyGroup = props => {
                 type="text"
                 placeholder="Enter Study Group Name..."
                 onChange={handleSearch}
+                onKeyDown={keyPressHandler}
                 value={group}
               />
             </div>
@@ -73,6 +78,7 @@ SearchStudyGroup.propTypes = {
   open: PropTypes.bool,
   close: PropTypes.func,
   handleSearch: PropTypes.func,
+  keyPressHandler: PropTypes.func,
   group: PropTypes.string,
   handleSubmit: PropTypes.func,
   searchData: PropTypes.array
