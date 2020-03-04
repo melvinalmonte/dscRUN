@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Route, Router } from "react-router-dom";
-import { firebaseAuth } from "./firebase/config";
 import Layout from "./components/layout";
 import history from "./history";
 import { Login } from "./pages/Login";
@@ -12,25 +11,10 @@ import { Groups } from "./pages/Groups";
 import { Availability } from "./pages/Availability";
 import { Redirect } from "./pages/Redirect";
 import { LandingPage } from "./pages/LandingPage";
+import { Auth } from "./utils/Auth";
 
 function App() {
-  const [auth, setAuth] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const removeListener = firebaseAuth().onAuthStateChanged(user => {
-      if (user) {
-        setAuth(true);
-        setLoading(false);
-      } else {
-        setAuth(false);
-        setLoading(false);
-      }
-    });
-    return () => {
-      removeListener();
-    };
-  }, []);
+  const { auth, loading } = Auth();
 
   if (loading) {
     return (

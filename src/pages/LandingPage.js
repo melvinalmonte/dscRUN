@@ -5,22 +5,23 @@ import { Link } from "react-router-dom";
 export const LandingPage = () => {
   return (
     <Layout>
-      <div className="columns landing-page-base is-vcentered">
-        <div className="column">
-          <section className="hero ">
-            <div className="hero-body">
-              <div className="container">
-                <h1 className="title">
-                  Rutgers Newark DSC Study Groups Application
-                </h1>
-                <h2 className="subtitle">
-                  Click <Link to="/login">here</Link> to login
-                </h2>
+      <section className="hero is-large">
+        <div className="hero-body">
+          <div className="container">
+            <div className="column has-text-centered">
+              <h1 className="title">
+                Rutgers Newark DSC Study Groups Application
+              </h1>
+              <div className="buttons is-centered">
+                <Link to="/login">
+                  {" "}
+                  <p className="button">Log in</p>
+                </Link>
               </div>
             </div>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 };

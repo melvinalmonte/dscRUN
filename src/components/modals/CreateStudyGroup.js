@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const CreateStudyGroup = props => {
   const {
     open,
+    createErr,
     close,
     groupName,
     groupDescription,
@@ -12,15 +13,12 @@ const CreateStudyGroup = props => {
     groupNameHandler,
     groupDescriptionHandler,
     meetUpTimeHandler,
-    meetUpLocationHanlder,
-    submitHandler
+    meetUpLocationHandler,
+    submitHandler,
+    keyPressHandler
   } = props;
-
-  if (!open) {
-    return null;
-  }
   return (
-    <div className={"modal is-active"}>
+    <div className={open ? "modal is-active" : "modal"}>
       <div className="modal-background" />
       <div className="modal-card">
         <header className="modal-card-head">
@@ -57,9 +55,15 @@ const CreateStudyGroup = props => {
                 className="input"
                 type="text"
                 value={meetUpLocation}
-                onChange={meetUpLocationHanlder}
+                onChange={meetUpLocationHandler}
+                onKeyDown={keyPressHandler}
               />
             </div>
+            {createErr ? (
+              <p className="has-text-danger">
+                Invalid input, please fill all empty fields.
+              </p>
+            ) : null}
           </div>
         </section>
         <footer className="modal-card-foot">
@@ -76,6 +80,7 @@ export default CreateStudyGroup;
 
 CreateStudyGroup.propTypes = {
   open: PropTypes.bool,
+  createErr: PropTypes.bool,
   close: PropTypes.func,
   groupName: PropTypes.string,
   groupNameHandler: PropTypes.func,
@@ -84,6 +89,7 @@ CreateStudyGroup.propTypes = {
   meetUpTime: PropTypes.string,
   meetUpTimeHandler: PropTypes.func,
   meetUpLocation: PropTypes.string,
-  meetUpLocationHanlder: PropTypes.func,
-  submitHandler: PropTypes.func
+  meetUpLocationHandler: PropTypes.func,
+  submitHandler: PropTypes.func,
+  keyPressHandler: PropTypes.func
 };

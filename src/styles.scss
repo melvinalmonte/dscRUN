@@ -1,7 +1,6 @@
 $run-red: #dc143c;
 $run-white: #f8f8ff;
 $run-black: #000000;
-$run-font: Monaco;
 $menu-item-hover-color: $run-white;
 $menu-item-hover-background-color: $run-black;
 $button-background-color: $run-red;
@@ -9,81 +8,27 @@ $button-color: $run-white;
 $button-hover-color: none;
 $footer-background-color: white;
 
-//Button
-
-.run-btn {
-  font-family: $run-font;
-  font-size: 24px !important;
+//Section
+.group-description {
+  margin-top: 2rem;
 }
-
+.title-header{
+  margin-bottom: 5rem;
+}
 //Layout
-
 .layout-base {
   height: 100vh;
 }
-.side-bar {
-  background-color: $run-red;
-}
-
-//SideBar
-
-.dsc-sidebar {
-  font-family: $run-font;
-  margin-top: 2rem;
-}
-.dsc-sidebar li a {
-  color: $run-white;
-  font-weight: 200;
-  font-size: 15px;
-}
-
-// Groups
-
-.groups-title {
-  color: $run-black !important;
-  font-family: $run-font !important;
-  font-size: 40px !important;
-  font-weight: 300 !important;
-}
-.group-description {
-  font-family: $run-font;
-  color: $run-black;
-}
-
-//modal
-
-.modal-head-content {
-  font-family: $run-font;
-  color: $run-black !important;
-}
-
-.btn-modal {
-  font-family: $run-font;
-}
-
 //login form
-
 .login-base {
   min-height: 100vh;
 }
-
-.login-title {
-  font-family: $run-font !important;
-}
-
 .sign-up-link {
   color: $run-black;
-  font-family: $run-font;
   padding-top: 1rem;
 }
-
 .error-pass {
   margin-top: 1rem;
-}
-
-//Landing Page
-.landing-page-base {
-  min-height: 100vh;
 }
 
 @import "~@fortawesome/fontawesome-free/css/fontawesome.css";
