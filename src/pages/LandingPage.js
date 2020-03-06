@@ -10,7 +10,7 @@ export const LandingPage = () => {
           <div className="container">
             <div className="column has-text-centered">
               <h1 className="title">
-                Rutgers Newark DSC Study Groups Application, HELLO FROM GCP
+                Rutgers Newark DSC Study Groups Application
               </h1>
               <div className="buttons is-centered">
                 <Link to="/login">
