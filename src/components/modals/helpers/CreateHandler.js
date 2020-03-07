@@ -35,10 +35,10 @@ const CreateHandler = () => {
     // todo: find a way to handle duplicate entry to db. Maybe use group name as unique name?...idk perhaps.
     let createGroup = groups;
     if (
-        groupName !== "" &&
-        description !== "" &&
-        meetTime !== "" &&
-        meetLocation !== ""
+      groupName !== "" &&
+      description !== "" &&
+      meetTime !== "" &&
+      meetLocation !== ""
     ) {
       createGroup = {
         name: groupName.toLowerCase(),
