@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { logout } from "../../utils/services";
+import history from "../../history";
+import { NavLink, Router } from "react-router-dom";
 
 export const Header = props => {
   const logo = process.env.PUBLIC_URL + "/images/run.png";
@@ -13,37 +15,35 @@ export const Header = props => {
         </a>
       </div>
       <div className="navbar-start">
-        <a className="navbar-item" href="/">
-          Home
-        </a>
-        <div className="navbar-item has-dropdown is-hoverable">
-          <p className="navbar-link">More</p>
-
-          <div className="navbar-dropdown">
-            <a className="navbar-item" href="/groups">
-              Groups
-            </a>
-            <a className="navbar-item" href="/clubs">
-              Clubs
-            </a>
-            <a className="navbar-item" href="/availability">
-              Availability
-            </a>
-            <hr className="navbar-divider" />
-            <a className="navbar-item" href="#!">
-              Contact us
-            </a>
+        <Router history={history}>
+          <span className="navbar-item">
+            <NavLink to="/">Home</NavLink>
+          </span>
+          <div className="navbar-item has-dropdown is-hoverable">
+            <p className="navbar-link">More</p>
+            <div className="navbar-dropdown">
+              <span className="navbar-item">
+                <NavLink to="/groups">Groups</NavLink>
+              </span>
+              <span className="navbar-item">
+                <NavLink to="/clubs"> Clubs</NavLink>
+              </span>
+              <span className="navbar-item">
+                <NavLink to="/availability">Availability</NavLink>
+              </span>
+              <hr className="navbar-divider" />
+              <span className="navbar-item">Contact us</span>
+            </div>
           </div>
-        </div>
+        </Router>
       </div>
-
       <div className="navbar-end">
         <div className="navbar-item">
           {login ? (
             <div className="buttons">
-              <a className="button" href="#!" onClick={() => logout()}>
+              <p className="button" onClick={() => logout()}>
                 Logout
-              </a>
+              </p>
             </div>
           ) : null}
         </div>
