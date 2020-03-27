@@ -25,14 +25,14 @@ navigate to the /frontend directory and run the following command.
 npm install
 ```
 
-Once all dependencies are installed and your go to .env.development file and add your firebase credentials to this: 
+Once all dependencies are installed and your go to ```src/firebase/config.js``` file and add your firebase credentials to the config object : 
 ```
-REACT_APP_API_KEY=XXXXxxxx
-REACT_APP_AUTH_DOMAIN=xxxxXXXX.firebaseapp.com
-REACT_APP_DATABASE_URL=https://xxxXXXX.firebaseio.com
-REACT_APP_PROJECT_ID=xxxxXXXX
-REACT_APP_STORAGE_BUCKET=xxxxXXXX.appspot.com
-REACT_APP_MESSAGING_SENDER_ID=xxxxXXXX
+const config = {
+  apiKey: "XXXXxxxx",
+  authDomain: "xxxxXXXX.firebaseapp.com",
+  databaseURL: "https://xxxXXXX.firebaseio.com",
+  projectId: "xxxxXXXX"
+};
 ```
 
 You'd only really need the first three for this demo but the remaining will be needed as the project grows.
